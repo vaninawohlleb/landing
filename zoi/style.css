@@ -1,0 +1,227 @@
+@import './utils/variables.css';
+/* @import './utils/mixins.css'; */
+
+@define-mixin grid $columns, $rows, $gap {
+  display: grid;
+  grid-column-gap: $gap;
+  grid-template-columns: $columns;
+}
+
+@define-mixin container $width {
+  margin: 0 auto;
+  max-width: $width; 
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+body {
+  font-family: var(--body-text);
+  color: var(--brand-color);
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+
+  /* type */
+  h1, h2, h4 {
+    font-family: var(--heading-text);
+    font-weight: 900;
+  }
+
+  h1 {
+    font-size: calc(3em + .3vw);
+    line-height: calc(1.1em + .5vw);
+  }
+
+  h3 {
+    font-size: calc(1.1em + .2vw);
+    line-height: calc(1.1em + .5vw);
+    font-weight: 400;
+  }
+
+  h4 {
+    font-size: calc(.8em + .2vw);
+    line-height: calc(.9em + .5vw);
+  }
+
+  h5 {
+    font-size: calc(.8em + .3vw);
+    line-height: calc(1em + .5vw);
+  }
+
+  .wrapper {
+    &__hero {
+      @mixin container var(--max-width-large);
+      height: 100vh;
+      overflow-y: visible;
+
+      hgroup {
+        width: 58vw;
+      }
+    }
+
+    &__about {
+      @mixin container var(--max-width-large);
+
+      .about__video {
+        @mixin container var(--max-width-mid);
+      
+        h3 {
+          text-align: center;
+        }
+
+        .video {
+          margin: 0 auto;
+          display: block;
+          width: 50vw;
+          height: calc(50vw * (9/16));
+        }
+      }
+
+      .about__text {
+        @mixin grid repeat(4, 1fr), 1fr, var(--small); 
+      }
+    }
+
+    &__cloud {
+      background: var(--brand-color);
+      color: white;
+      padding: var(--huge) 0;
+
+      .cloud__heading {
+        @mixin container var(--max-width-large);
+        margin-bottom: var(--big);
+
+        h1, h3 {
+          margin: 0;
+        } 
+      }
+
+      .cloud__content {
+        @mixin container var(--max-width-large);
+        @mixin grid repeat(2, 1fr), 1fr, var(--huge);
+        line-height: calc(1.1em + .5vw);
+
+        p {
+          margin: var(--tiny) 0 var(--medium);
+        }
+
+        .content__benefits {
+          margin-top: var(--tiny);
+
+          h4 {
+            margin: 0;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &__services {
+      @mixin container var(--max-width-large);
+      @mixin grid repeat(2, 1fr), 2fr, var(--large);
+      
+      h5 {
+        margin-bottom: 0;
+      }
+
+      h2 {
+        margin: 0;
+      }
+    }
+
+    &__partners {
+      @mixin container var(--max-width-large);
+      padding: var(--big) 0;
+      text-align: center;
+    }
+
+    &__careers {
+      background: var(--brand-color);
+      color: white;
+      padding: var(--huge) 0;
+
+      .careers__heading {
+        @mixin container var(--max-width-large);
+        margin-bottom: var(--big);
+
+        h1 {
+          margin: 0;
+        }
+      }
+
+      .careers__benefits {
+        @mixin container var(--max-width-large);
+        @mixin grid repeat(3, 1fr), 1fr, var(--big);
+        line-height: calc(1.1em + .5vw);
+        padding: 0;
+      }
+
+      h4 {
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: var(--tiny) 0 var(--medium);
+      }
+
+      .careers__apply {
+        @mixin container var(--max-width-large);
+        @mixin grid repeat(3, 1fr), 1fr, var(--big);
+        grid-template-areas: ". . right";
+
+        button {
+          align-self: end;
+          grid-area: right;
+          background: none;
+          border: 4px solid white;
+          color: white;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    &__contact {
+      @mixin container var(--max-width-large);
+      @mixin grid repeat(4, 1fr), 1fr, var(--small);
+      padding: var(--big) 0;
+      grid-template-areas: ". . first second third";
+
+      address {
+        font-style: unset;
+        line-height: calc(1em + .2vw);
+
+        p {
+          margin: 0 0 0 var(--tiny);
+        }
+
+        &:first-child {
+          grid-area: first;
+        }
+
+        &:nth-child(2) {
+          grid-area: second;
+        }
+
+        &:last-child {
+          grid-area: third;
+        }
+      }
+    }
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+

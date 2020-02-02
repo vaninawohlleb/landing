@@ -1,0 +1,6 @@
+/* grids */
+@define-mixin grid $columns, $rows, $gap {
+    display: grid;
+    grid-column-gap: $gap;
+    grid-template-columns: $columns;
+}

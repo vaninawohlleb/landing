@@ -1,0 +1,28 @@
+:root {
+  /* fonts */
+  --body-text: 'Roboto', sans-serif;
+  --heading-text: 'Montserrat', sans-serif;
+
+  /* colors */
+  --brand-color: #004560;
+  --light-accent-color: #C4FFB2;
+
+  /* widths */
+  --tiny: .5em;
+  --small: 1em;
+  --medium: 1.5em;
+  --big: 2em;
+  --large: 2.5em;
+  --huge: 4.5em;
+
+  --max-width-large: 74em;
+  --max-width-mid: 50em;
+}
+
+
+
+/* media query screen widths */
+/* grid properties */
+/* navigation */
+/* footer */
+/* misc */
