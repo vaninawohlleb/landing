@@ -34,5 +34,18 @@
   "bugs": {
     "url": "https://github.com/vaninawohlleb/landing/issues"
   },
-  "homepage": "https://github.com/vaninawohlleb/landing#readme"
+  "homepage": "https://github.com/vaninawohlleb/landing#readme",
+  "postcss": {
+    "plugins": {
+      "postcss-easy-import": {},
+      "autoprefixer": {},
+      "cssnano": {},
+      "postcss-preset-env": {},
+      "postcss-mixins": {},
+      "postcss-simple-vars": {},
+      "postcss-nested": {},
+      "postcss-nesting": {},
+      "postcss-functions": {}
+    }
+  }
 }

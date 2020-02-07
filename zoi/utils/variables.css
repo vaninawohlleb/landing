@@ -4,25 +4,23 @@
   --heading-text: 'Montserrat', sans-serif;
 
   /* colors */
-  --brand-color: #004560;
-  --light-accent-color: #C4FFB2;
+  --brand-blue: #3E514E;
+  --light-gray: #F7F7F7;
+  --turq: #1AE4CA;
+  --light-turq: #91EFE3;
+  --blue: #2786FF;
 
   /* widths */
-  --tiny: .5em;
-  --small: 1em;
-  --medium: 1.5em;
-  --big: 2em;
-  --large: 2.5em;
-  --huge: 4.5em;
+  --tiny: .5rem;
+  --small: 1rem;
+  --medium: 1.5rem;
+  --big: 2rem;
+  --large: 2.5rem;
+  --huge: 4.5rem;
+  --hugest: 8rem;
 
-  --max-width-large: 74em;
-  --max-width-mid: 50em;
+  --max-width-large: 74rem;
+  --max-width-big: 61.50rem;
+  --max-width-mid: 50rem;
+  --max-width-small: 15rem;
 }
-
-
-
-/* media query screen widths */
-/* grid properties */
-/* navigation */
-/* footer */
-/* misc */
