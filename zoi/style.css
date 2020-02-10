@@ -1,5 +1,4 @@
 @import './utils/variables.css';
-/* @import './utils/mixins.css'; */
 
 @define-mixin grid $columns, $rows, $gap {
   display: grid;
@@ -13,6 +12,11 @@
   max-width: $width; 
 }
 
+@custom-media --small (width >= 768px);
+@custom-media --medium (width >= 960px);
+@custom-media --big (width >= 1224px);
+@custom-media --large (width >= 1442px);
+
 *,
 *:before,
 *:after {
@@ -22,6 +26,7 @@
 ul, ol {
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
 
 a {
@@ -34,15 +39,18 @@ img {
 
 html {
   font-size: 16px;
-  line-height: calc(1rem + .5vw);
+  line-height: calc(1.1rem + .5vw);
+  font-weight: 400;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--body-text);
   color: var(--brand-blue);
-  font-weight: 400;
   margin: 0;
+  padding: 0;
   background: #fff;
+  overflow-x: hidden;
 
   /* type */
   h1, h2, h4 {
@@ -82,6 +90,37 @@ body {
     font-weight: 400;
   }
 
+  nav {
+    display: grid;
+    padding: 0 var(--big);
+    @mixin grid 1fr 4fr, 1fr, var(--small);
+    
+    @media (--small) {
+      @mixin grid 1fr 6fr, 1fr, var(--medium);
+    }
+
+    h1 {
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: none;
+
+      @media (--medium){
+        display: grid;
+        @mixin grid repeat(4, 100px), 1fr, var(--tiny);
+        align-items: center;
+        z-index: 1;
+      }
+
+      > li > a {
+        font-family: var(--heading-text);
+        text-transform: uppercase;
+        color: var(--brand-blue);
+      }
+    }
+  }
+
   .button {
     width: 100%;   
     background: transparent;
@@ -89,6 +128,7 @@ body {
     max-width: var(--max-width-small);
     padding: var(--medium);
     margin-top: var(--big);
+    cursor: pointer;
 
     &:focus {
       outline: none;
@@ -105,35 +145,53 @@ body {
     }
 
     &__text {
+      font-size: calc(.8rem + .2vw);
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 900;
       font-family: var(--heading-text);
+      background: transparent;
+      border: none;
+
+      img {
+        fill: var(--blue);
+      }
     }
   }
 
   .wrapper {
+    overflow: hidden;
+
     &__hero {
       background: var(--blue);
-      margin-top: var(--huge);
 
       .hero__text {
         @mixin container var(--max-width-large);
         @mixin grid 1fr, repeat(3, 1fr), var(--small);
-        padding: var(--huge) 0;
+        padding: var(--big);
         color: #fff;
 
+        @media (--big) {
+          padding: var(--huge) 0;
+        }
+
         h1 {
-          max-width: 56vw;
           width: 100%;
           margin: 0;
           z-index: 1;
+
+          @media (--medium) {
+            max-width: 56vw;
+          }
         }
 
         h3 {
-          max-width: 42vw;
           width: 100%;
           z-index: 1;
+
+          @media (--medium) {
+            max-width: 42vw;
+          }
         }
       }
       
@@ -150,8 +208,11 @@ body {
 
     &__about {
       @mixin container var(--max-width-large);
-      padding: var(--hugest) 0 var(--big);
-      background: var(--light-gray);
+      padding: var(--big);
+
+      @media (--big) {
+        padding: var(--hugest) 0 var(--big);
+      }
 
       .about__video {
         @mixin container var(--max-width-mid);
@@ -166,7 +227,11 @@ body {
       }
 
       .about__text {
-        @mixin grid repeat(4, 1fr), 1fr, var(--small);
+        @mixin grid repeat(2, 1fr), 2fr, var(--small);
+
+        @media (--medium) {
+          @mixin grid repeat(4, 1fr), 1fr, var(--small);
+        }
         
         h4 {
           color: var(--blue);
@@ -181,10 +246,22 @@ body {
         @mixin container var(--max-width-large);
         row-gap: var(--huge);
         color: white;
-        padding: var(--huge) 0;
-        @mixin grid repeat(4, 2fr), repeat(2, 1fr), var(--huge);
-        grid-template-areas: "first first second second"
-        ". third forth fifth";
+        padding: var(--big);
+        @mixin grid repeat(2, 1fr), repeat(4, 1fr), var(--big);
+        grid-template-areas: "first first"
+          "second second"
+          "third forth"
+          "fifth fifth";
+
+        @media(--medium) {
+          @mixin grid repeat(4, 2fr), repeat(2, 1fr), var(--huge);
+          grid-template-areas: "first first second second"
+          ". third forth fifth";
+        }
+
+        @medi (--big) {
+          padding: var(--huge) 0;
+        }
 
         h1, h3, h3 {
           margin: 0;
@@ -196,10 +273,14 @@ body {
 
         &__heading {
           grid-area: first;
-          border-bottom: 4px solid var(--turq);
+
+          @media(--medium) {
+            border-bottom: 4px solid var(--turq);
+          }
 
           + p {
             grid-area: second;
+            margin: 0;
           }
         }
 
@@ -220,17 +301,26 @@ body {
     &__services {
       @mixin container var(--max-width-big);
       @mixin grid 1fr, 4fr, var(--huge);
-      padding: var(--huge) 0;
+      padding: var(--big);
       
+      @media (--big) {
+        padding: var(--huge) 0;
+      }
+
       .services {
         align-items: center;
+        @mixin grid 1fr, repeat(2, 1fr), var(--medium);
 
-        &:nth-child(odd) {
-          @mixin grid 1.5fr 2fr, 1fr, var(--huge);
+        &:nth-child(odd) {  
+          @media (--small) {
+            @mixin grid 1.5fr 2fr, 1fr, var(--huge);
+          }
         }
         
         &:nth-child(even) {
-          @mixin grid 2fr 1.5fr, 1fr, var(--huge);
+          @media (--small) {
+            @mixin grid 2fr 1.5fr, 1fr, var(--huge);
+          }
         }
       }
 
@@ -243,84 +333,73 @@ body {
       }
     }
 
-    &__partners {
-      padding: var(--big) 0;
-
-      .partners__text {
-        @mixin container var(--max-width-large);
-        text-align: center;
-      }
-
-      .partners__logos {
-        display: flex;
-        justify-items: center;
-        align-items: center;
-        margin: 0 auto;
-        width: 100%;
-        padding: var(--large);
-        background: var(--light-gray);
-
-        img {
-          max-width: 5em;
-        }
-      }
-    }
-
     &__careers {
       position: relative;
-      padding: var(--huge) 0;
-      @mixin grid repeat(2, 1fr), 1fr, var(--huge);
+      padding: var(--huge) 0 0;
+      @mixin grid 1fr, repeat(2, 1fr), var(--big);
+
+      @media (--medium) {
+        @mixin grid repeat(2, 1fr), 1fr, var(--huge);
+        padding: var(--huge) 0;
+      }
 
       .careers__summary {
         @mixin grid 1fr, repeat(3, 1fr), var(--small);
-        max-height: 5vh;
-        padding: 0 var(--hugest);
+        padding: 0 var(--big);
+        align-items: center;
+        align-self: center;
 
+        @media (--medium) {
+          padding: 0 var(--huge);
+        }
+        
         h2, h3 {
           margin: 0;
         }
       }
 
       .careers__slider {
-        /* position: relative; */
+        background: var(--brand-blue);
+        color: #fff;
 
-        input[type="radio"] {
-          position: absolute;
-          bottom: 0;
-          left: -9999px;
-        }
+        button {
+          background: transparent;
+          border: none;
+          padding: var(--medium);
 
-        .slides {
-          display: grid;
+          img > svg > path {
+            fill: #1ae4ca;
+          }
 
-          .slides-one, .slides-two, .slides-three {
-            grid-column: 1;
-            grid-row: 1;
-            opacity: 0;
-            transition: opacity .25s;
+          &:focus {
+            outline: none;
           }
         }
 
-        [id="slider-one"]:checked ~ .slider .slides .slides-one,
-        [id="slider-two"]:checked ~ .slider .slides .slides-two,
-        [id="slider-three"]:checked ~ .slider .slides .slides-three {
-          opacity: 1;
-        }
-
-        [id="slider-one"]:checked ~ .slider .arrows li,
-        [id="slider-two"]:checked ~ .slider .arrows li,
-        [id="slider-three"]:checked ~ .slider .arrows li   {
-          opacity: 1;
-          background: blue;
+        .slider {
+          display: grid;
           padding: var(--big);
-          width: 100%;
-        }
 
-        .arrows {
-          display: block;
+          @media (--medium) {
+            padding: var(--big) var(--huge);
+          }
+          
+          .slides {
+            grid-column: 1;
+            grid-row: 1;
+            align-self: center;
+            transform: translateX(150%);
+            transition: transform .7s ease-in-out;
+            background: var(--brand-blue);
 
-          li {
-            background: var(--turq);
+            &[data-status='active'] {
+             transform: translateX(0);
+             
+            }
+
+            h4 {
+              color: var(--turq);
+            }
           }
         }
       }
@@ -330,7 +409,12 @@ body {
   footer {
     @mixin grid repeat(4, 1fr), 1fr, var(--small);
     font-size: 14px;
-    padding: var(--tiny);
+    padding: var(--big);
+    border-top: 4px solid var(--turq);
+
+    @media (--medium) {
+      @mixin grid repeat(4, 1fr), 1fr, var(--large);
+    }
 
     address {
       font-style: unset;

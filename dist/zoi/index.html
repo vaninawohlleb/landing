@@ -10,20 +10,31 @@
   <script src="/style.9de6a377.js"></script></head>
   <body>
       <header>
-        <img>
-        <nav></nav>
+        <nav>
+          <h1>logo</h1>
+          <ul class="navigation">
+            <li><a href="#">about</a></li>
+            <li><a href="#">cloud</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">careers</a></li>
+          </ul>
+        </nav>
       </header>
       <main class="wrapper">
         <div class="wrapper__hero">
           <div class="hero__text">
             <h1>We close the gap between Enterprise IT and New Technologies.</h1>
             <h3>Zoi is the digital companion of the so-called hidden champions. And the not so hidden one. We create innovative solutions. Our heart beats for Code, Cloud, Data, Electronic Engineering, Creation and Exploration.</h3>
-            <a href="#" class="button white">
+            <a href="#services" class="button white">
               <span class="button__text">See our services</span>
             </a>
           </div>
           <div class="hero__image">
-            <img src="/abstrakt-design-1.5776f4dd.svg" alt="hero">
+            <picture>
+              <source media="(min-width: 960px)" srcset="/abstrakt-design-1.5776f4dd.svg">
+              <source media="(max-width: 960px)" srcset="/1x1.85f7b31e.png">
+                <img src="/abstrakt-design-1.5776f4dd.svg" alt="hero">
+            </picture>
           </div>
         </div>
         <div class="wrapper__about">
@@ -82,7 +93,7 @@
           </div>
         </div>
         <div class="wrapper__services">
-          <section class="services">
+          <section class="services" id="services">
             <div class="services__image">
               <img src="/code.e10b3c04.jpg" alt="code">
             </div>
@@ -105,7 +116,9 @@
                 unique: in companies as well as their customers. All applications we create ensure that functional and technical
                 requirements are compatible with a well thought-out user experience and design.
               </p>
-              <span class="button__text">read more</span>
+              <span class="button__text">
+                read more
+              </span>
             </div>
             <div class="services__image">
               <img src="/creation.d7f39947.jpg" alt="code">
@@ -142,82 +155,53 @@
             </div>
           </section>
         </div>
-        <div class="wrapper__partners">
-          <div class="partners__text">
-            <h3 class="underline">Powerful technology partners - always independent.</h3>
-            <p>We work closely with our partners. In this way we ensure that we are always up to date with the latest innovations
-              and that we master them as early as possible after availability. Above all, our customers benefit because we can
-              develop the best architectures and scenarios.
-            </p>
-          </div>
-          <div class="partners__logos">
-            <img>
-            <img>
-            <img>
-            <img>
-            <img>
-          </div>
-        </div>
-        <ul class="partners__logos">
-          <li></li>
-        </ul>
         <div class="wrapper__careers">
           <div class="careers__summary">
             <h2>Grow with us</h2>
             <h3>Zoi, these are clever, well-rehearsed minds from the fields of information technology and business. But also lateral entrants from mathematics, biology or physics complement our synergistic team, which is headquartered in Stuttgart and looks back on a long history and a great experience despite the young foundation of the company.</h3>
-            <a href="#" class="button blue">
+            <a href="https://meet.zoi.de/" target="blank" class="button blue">
               <span class="button__text">
                 See open positions
               </span>
             </a>
           </div>
           <div class="careers__slider">
-            <input type="radio" id="slider-one" name="slide" checked="">
-            <div class="slider">
-              <ul class="arrows">
-                <li><label for="slider-one"></label></li>
-                <li><label for="slider-two"></label></li>
-                <li><label for="slider-three"></label></li>
-              </ul>
-              <ul class="slides">
-                <li class="slides-one">
-                  <h4>With us, everyone assumes responsibility right from the start.</h4>
-                  <p>Each individual has his or her own individual competence profile. Instead of rigid structures, we work in
-                    changing teams that are made up of our job profiles. For you, this means a great exchange with colleagues and thus
-                    a constant learning curve. Apart from the projects we carry out with our customers, we encourage regular
-                    professional exchange.</p>
-                </li>
-                <li class="slides-two">
-                  <h4>Technological play instinct is very important to us.</h4>
-                  <p>This results in exciting insights that we use again and again with our customers. That’s why you can use part of
-                    your working time to try out new technologies. Anyway: You determine your place of work and your working hours
-                    yourself as far as possible. You can also use your company notebook and mobile phone for your private purposes.
-                    And we do a lot more for you. Some say: More than anybody. We know that we are strongest together and that any
-                    idea can be the beginning of something big. That’s why we live flat hierarchies and build on the competence of
-                    each individual. We are proud of the growth of our team and are open to every new encounter. And just as in our
-                    technological approach, our internal focus is on people and their development. That is why we are always on the
-                    lookout for exciting characters who will further enrich our team. If work means learning for you and you are
-                    looking for the freedom to develop yourself and your skills - then Zoi will be more than just a job for you. Some
-                    say we’re a family business. That doesn’t seem too far off from the truth.</p>
-                </li>
-                <li class="slides-three">
-                  <h4>Help shape ZOI</h4>
-                  <p>Help shape the success of our company at your own pace. This works best in interdisciplinary teams, but also in
-                    direct contact with our customers, with really flexible working hours and team events apart from bowling alleys.
-                    But sometimes we also go bowling. Everything is relative. Not only Einstein knew that. You absolutely want to get
-                    to know us and convince us, even if you don’t meet all the requirements? Either way: We are curious.</p>
-                </li>
-              </ul>
-            </div>
+            <ul class="slider">
+              <li class="slides" data-status="active">
+                <h4>With us, everyone assumes responsibility right from the start.</h4>
+                <p>Each individual has his or her own individual competence profile. Instead of rigid structures, we work in
+                  changing teams that are made up of our job profiles. For you, this means a great exchange with colleagues and thus
+                  a constant learning curve. Apart from the projects we carry out with our customers, we encourage regular
+                  professional exchange.</p>
+              </li>
+              <li class="slides">
+                <h4>Technological play instinct is very important to us.</h4>
+                <p>This results in exciting insights that we use again and again with our customers. That’s why you can use part of
+                  your working time to try out new technologies. Anyway: You determine your place of work and your working hours
+                  yourself as far as possible. You can also use your company notebook and mobile phone for your private purposes.
+                  And we do a lot more for you. Some say: More than anybody. We know that we are strongest together and that any
+                  idea can be the beginning of something big. That’s why we live flat hierarchies and build on the competence of
+                  each individual. We are proud of the growth of our team and are open to every new encounter. And just as in our
+                  technological approach, our internal focus is on people and their development. That is why we are always on the
+                  lookout for exciting characters who will further enrich our team. If work means learning for you and you are
+                  looking for the freedom to develop yourself and your skills - then Zoi will be more than just a job for you. Some
+                  say we’re a family business. That doesn’t seem too far off from the truth.</p>
+              </li>
+              <li class="slides">
+                <h4>Help shape ZOI</h4>
+                <p>Help shape the success of our company at your own pace. This works best in interdisciplinary teams, but also in
+                  direct contact with our customers, with really flexible working hours and team events apart from bowling alleys.
+                  But sometimes we also go bowling. Everything is relative. Not only Einstein knew that. You absolutely want to get
+                  to know us and convince us, even if you don’t meet all the requirements? Either way: We are curious.</p>
+              </li>
+            </ul>
+            <button id="arrow">
+              <img src="/arrow.eb6d1997.svg" alt="arrow">
+            </button>
           </div>
         </div>
       </main>
       <footer>
-        <section>
-          Copyright © Zoi TechCon GmbH
-          <p>Impressum / Imprint (German) | Datenschutz</p>
-          <p>Data Privacy (German)</p>
-        </section>
         <address>
           <p>Zoi TechCon GmbH</p>
           <p>Quellenstraße 7</p>
@@ -237,6 +221,11 @@
           <p>1350-352 Lisboa</p>
           <p class="country">Portugal</p>
         </address>
+        <section>
+          Copyright © Zoi TechCon GmbH
+          <span>Impressum / Imprint (German) | Datenschutz</span>
+          <span>Data Privacy (German)</span>
+        </section>
       </footer>
     <script src="/zoi.42f902a8.js"></script>
   </body>
