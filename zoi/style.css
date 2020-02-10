@@ -259,7 +259,7 @@ body {
           ". third forth fifth";
         }
 
-        @medi (--big) {
+        @media (--big) {
           padding: var(--huge) 0;
         }
 
