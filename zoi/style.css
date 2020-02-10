@@ -271,6 +271,10 @@ body {
           color: var(--turq);
         }
 
+        h4 {
+          text-transform: uppercase;
+        }
+
         &__heading {
           grid-area: first;
 
@@ -362,14 +366,18 @@ body {
         background: var(--brand-blue);
         color: #fff;
 
+        h4 {
+          text-transform: uppercase;
+        }
+
         button {
           background: transparent;
           border: none;
           padding: var(--medium);
 
-          img > svg > path {
+          /* img > svg > path {
             fill: #1ae4ca;
-          }
+          } */
 
           &:focus {
             outline: none;
