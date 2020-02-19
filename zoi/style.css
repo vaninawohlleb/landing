@@ -42,6 +42,8 @@ html {
   line-height: calc(1.1rem + .5vw);
   font-weight: 400;
   scroll-behavior: smooth;
+  text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -85,7 +87,7 @@ body {
   }
 
   h5 {
-    font-size: calc(.8rem + .2vw);
+    font-size: calc(.7rem + .2vw);
     text-transform: uppercase;
     font-weight: 400;
   }
@@ -99,8 +101,8 @@ body {
       @mixin grid 1fr 6fr, 1fr, var(--medium);
     }
 
-    h1 {
-      text-transform: uppercase;
+    .logo {
+      padding: var(--big) 0;
     }
 
     ul {
@@ -111,6 +113,13 @@ body {
         @mixin grid repeat(4, 100px), 1fr, var(--tiny);
         align-items: center;
         z-index: 1;
+        text-align: center;
+      }
+
+      > li {
+        &:last-child {
+          margin-left: var(--small);
+        }
       }
 
       > li > a {
@@ -145,17 +154,15 @@ body {
     }
 
     &__text {
-      font-size: calc(.8rem + .2vw);
+      font-size: calc(.7rem + .2vw);
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 900;
       font-family: var(--heading-text);
       background: transparent;
       border: none;
-
-      img {
-        fill: var(--blue);
-      }
+      cursor: pointer;
+      text-align: center;
     }
   }
 
@@ -326,14 +333,24 @@ body {
             @mixin grid 2fr 1.5fr, 1fr, var(--huge);
           }
         }
-      }
 
-      h5, h2 {
-        margin: var(--tiny) 0;
-      }
+        h5, h2 {
+          margin: var(--tiny) 0;
+        }
 
-      h2, span {
-        color: var(--blue);
+        h2, span {
+          color: var(--blue);
+        }
+
+        .button__text {
+          &:after {
+            content: '';
+            background: url('assets/arrow.svg') no-repeat 50%;
+            background-size: 100%;
+            padding: .1rem .6rem;
+            margin: var(--small);
+          }
+        }
       }
     }
 
@@ -410,17 +427,25 @@ body {
             }
           }
         }
+
+        #arrow {
+          cursor: pointer;
+
+           .arrow__inner {
+            fill: var(--turq);
+          }
+        }
       }
     }
   }
 }
   footer {
-    @mixin grid repeat(4, 1fr), 1fr, var(--small);
+    @mixin grid repeat(2, 1fr), 1fr, var(--small);
     font-size: 14px;
     padding: var(--big);
     border-top: 4px solid var(--turq);
 
-    @media (--medium) {
+    @media (--small) {
       @mixin grid repeat(4, 1fr), 1fr, var(--large);
     }
 
