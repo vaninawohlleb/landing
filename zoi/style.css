@@ -372,7 +372,11 @@ body {
         align-self: center;
 
         @media (--medium) {
-          padding: 0 var(--huge);
+          padding: 0 var(--huge) ;
+        }
+
+        @media (--big) {
+          padding: 0 var(--big) 0 var(--max);
         }
         
         h2, h3 {
@@ -392,10 +396,6 @@ body {
           background: transparent;
           border: none;
           padding: var(--medium);
-
-          /* img > svg > path {
-            fill: #1ae4ca;
-          } */
 
           &:focus {
             outline: none;
