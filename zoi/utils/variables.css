@@ -1,7 +1,7 @@
 :root {
   /* fonts */
   --body-text: 'Roboto', sans-serif;
-  --heading-text: 'Montserrat', sans-serif;
+  --heading-text: 'Lato', sans-serif;
 
   /* colors */
   --brand-blue: #344055;
@@ -17,6 +17,7 @@
   --big: 2rem;
   --large: 2.5rem;
   --huge: 4.5rem;
+  --xxl: 5rem;
   --hugest: 8rem;
   --max: 10rem;
 
