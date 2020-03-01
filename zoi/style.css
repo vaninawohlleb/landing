@@ -331,8 +331,8 @@ body {
         &:hover {
           .svg-bgr {
             @media (--big) {
-              animation: 2.5s rotate ease-in-out;
-              animation-fill-mode: forwards;
+              animation: 2.5s rotate ease-out;
+              animation-fill-mode: 1;
             }
           }
         }
@@ -519,6 +519,6 @@ body {
 
 @keyframes rotate {
   50% {
-    transform: rotate(-5deg);
+    transform: rotate(-2deg);
   }
 }
